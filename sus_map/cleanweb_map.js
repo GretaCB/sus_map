@@ -117,15 +117,19 @@ var cleanweb_map = cleanweb_map || (function () {
     
     var onFeatureSelect = function(event){
         var feature = event.feature;
-        var selectedFeature = feature;
-        var popup = new OpenLayers.Popup.FramedCloud("chicken",
+        // Since KML is user-generated, do naive protection against
+        // Javascript.
+        var content = "<h4>"+feature.attributes.name + "</h4>";
+        if (content.search("<script") != -1) {
+            content = "Content contained Javascript! Escaped content below.<br>" + content.replace(/</g, "&lt;");
+        }
+        popup = new OpenLayers.Popup.FramedCloud("chicken", 
             feature.geometry.getBounds().getCenterLonLat(),
             new OpenLayers.Size(100,100),
-            "<h3>"+feature.attributes.name + "</h3>",
-            null, true, onPopupClose
-        );
-        feature.popup = popup;
-        map.addPopup(popup);
+            content,
+            null, true, onPopupClose);
+            feature.popup = popup;
+            map.addPopup(popup);
     };
     
     var onFeatureUnselect = function(event){
@@ -136,7 +140,8 @@ var cleanweb_map = cleanweb_map || (function () {
             delete feature.popup;
         }
     };
-
+   
+    
     return {
         init: init
     }
