@@ -1,13 +1,9 @@
 <html>
   <head>
-    <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+    <script src="http://openlayers.org/api/OpenLayers.js"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="cleanweb_map.js"></script>
-    <script type="text/os-data" xmlns:os="http://ns.opensocial.org/2008/markup">
-        <os:HttpRequest key="stationServiceUrl"
-                        href="http://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=DEMO_KEY&location=Boston+MA&fuel_type=ELEC"
-                        refreshInterval="0" format="json"/>
-    </script>
+    <link rel="stylesheet" type="text/css" href="cleanweb_map.css">
   </head>
   <body>
     <div id="mapdiv"></div>
