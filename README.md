@@ -3,7 +3,7 @@ City of Boston Sustainability Map
 Developed at the Cleanweb Hackathon 2013 in Boston, MA
 
 Developers:
-Macy Cronkite
+Macy Cronkite and 
 Carol Hansen
 
 This map application displays open city data (KML) pertaining to sustainability within Boston, MA. 
